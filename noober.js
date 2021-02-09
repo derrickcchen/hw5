@@ -68,6 +68,140 @@ function renderRides(ridesArray) {
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-  // YOUR CODE
-})
+  
+  // Find the "All Rides" button using querySelector() and add a click event listener
 
+  let AllRidesButton = document.querySelector('#all-filter')
+  AllRidesButton.addEventListener('click', async function(event) {
+    event.preventDefault() // supress the browser's default click behavior
+    // Add an event listener to the "All Rides" button, so that when it is clicked, there is some output in the console to indicate which button was clicked.
+    console.log('The All Rides button was clicked')
+    
+    // Fetch the api response
+    let response = await fetch(`https://kiei451.com/api/rides.json`)
+
+    // extract the json using the .json() function
+    let json = await response.json()
+
+    console.log(json)
+
+    renderRides(json)
+  })
+
+  let NooberPurpleButton = document.querySelector('#noober-purple-filter')
+  NooberPurpleButton.addEventListener('click', async function(event) {
+    event.preventDefault() // supress the browser's default click behavior
+    console.log('The Noober Purple Rides button was clicked')
+    
+    // request the ride data from our "API"
+    let response = await fetch(`https://kiei451.com/api/rides.json`)
+
+    // extract the json using the .json() function
+    let json = await response.json()
+
+    // create a new empty array
+    let newArray = []
+
+    // loop through the rides and for each ride, determine the service level, and use newArray.push(ride) to add "Noober Purple" rides into the new array lastly, pass the new array of filtered rides to the renderRides() function
+    for (let i = 0; i < json.length; i++) {
+      let ride = json[i]
+      // console.log(ride)
+
+      if (levelOfService(ride) == 'Noober Purple') {
+        newArray.push(ride)
+      } else {
+      }
+    }
+    
+    // pass the new array of filtered rides to the renderRides() function
+    renderRides(newArray)
+  })
+
+  let NooberPoolButton = document.querySelector('#noober-pool-filter')
+  NooberPoolButton.addEventListener('click', async function(event) {
+    event.preventDefault() // supress the browser's default click behavior
+    console.log('The Noober Pool Rides button was clicked')
+    
+    // request the ride data from our "API"
+    let response = await fetch(`https://kiei451.com/api/rides.json`)
+
+    // extract the json using the .json() function
+    let json = await response.json()
+
+    // create a new empty array
+    let newArray = []
+
+    // loop through the rides and for each ride, determine the service level, and use newArray.push(ride) to add "Noober Purple" rides into the new array lastly, pass the new array of filtered rides to the renderRides() function
+    for (let i = 0; i < json.length; i++) {
+      let ride = json[i]
+      // console.log(ride)
+
+      if (levelOfService(ride) == 'Noober Pool') {
+        newArray.push(ride)
+      } else {
+      }
+    }
+    
+    // pass the new array of filtered rides to the renderRides() function
+    renderRides(newArray)
+  })
+
+  let NooberXLButton = document.querySelector('#noober-xl-filter')
+  NooberXLButton.addEventListener('click', async function(event) {
+    event.preventDefault() // supress the browser's default click behavior
+    console.log('The Noober XL Rides button was clicked')
+    
+    // request the ride data from our "API"
+    let response = await fetch(`https://kiei451.com/api/rides.json`)
+
+    // extract the json using the .json() function
+    let json = await response.json()
+
+    // create a new empty array
+    let newArray = []
+
+    // loop through the rides and for each ride, determine the service level, and use newArray.push(ride) to add "Noober Purple" rides into the new array lastly, pass the new array of filtered rides to the renderRides() function
+    for (let i = 0; i < json.length; i++) {
+      let ride = json[i]
+      // console.log(ride)
+
+      if (levelOfService(ride) == 'Noober XL') {
+        newArray.push(ride)
+      } else {
+      }
+    }
+    
+    // pass the new array of filtered rides to the renderRides() function
+    renderRides(newArray)
+  })
+
+  let NooberXButton = document.querySelector('#noober-x-filter')
+  NooberXButton.addEventListener('click', async function(event) {
+    event.preventDefault() // supress the browser's default click behavior
+    console.log('The Noober X Rides button was clicked')
+    
+    // request the ride data from our "API"
+    let response = await fetch(`https://kiei451.com/api/rides.json`)
+
+    // extract the json using the .json() function
+    let json = await response.json()
+
+    // create a new empty array
+    let newArray = []
+
+    // loop through the rides and for each ride, determine the service level, and use newArray.push(ride) to add "Noober Purple" rides into the new array lastly, pass the new array of filtered rides to the renderRides() function
+    for (let i = 0; i < json.length; i++) {
+      let ride = json[i]
+      // console.log(ride)
+
+      if (levelOfService(ride) == 'Noober X') {
+        newArray.push(ride)
+      } else {
+      }
+    }
+    
+    // pass the new array of filtered rides to the renderRides() function
+    renderRides(newArray)
+  })
+
+})
